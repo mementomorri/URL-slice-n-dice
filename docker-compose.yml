@@ -1,0 +1,12 @@
+# Конфигурация Docker Compose
+
+services:
+  url-shortener:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./url_shortener.db:/app/url_shortener.db
+    environment:
+      - PYTHONPATH=/app
+    restart: unless-stopped
